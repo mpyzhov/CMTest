@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C9CB1F7-3D8E-4A89-BEA8-850E95649805}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HidDevices</RootNamespace>
+    <AssemblyName>HidDevices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HumanInterfaceDevice">
+      <HintPath>..\dlls\HumanInterfaceDevice.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoolitHidDevice.cs" />
+    <Compile Include="CoolitModernCommandCode.cs" />
+    <Compile Include="CoolitModernOutputReportFactory.cs" />
+    <Compile Include="CoolitUtils.cs" />
+    <Compile Include="CommandStateMachine.cs" />
+    <Compile Include="CoolitBridgeCommandCode.cs" />
+    <Compile Include="CoolitBridgeOutputReportFactory.cs" />
+    <Compile Include="CoolitBridgeResponseValidator.cs" />
+    <Compile Include="CoolitCommandByteWriter.cs" />
+    <Compile Include="CoolitCommandOpCode.cs" />
+    <Compile Include="CoolitDevice.cs" />
+    <Compile Include="CoolitDeviceEntity.cs" />
+    <Compile Include="CoolitModel.cs" />
+    <Compile Include="CoolitRegisterData.cs" />
+    <Compile Include="CoolitRegisterDataUtils.cs" />
+    <Compile Include="CoolitRegisterDataWriterVisitor.cs" />
+    <Compile Include="CoolitSensor.cs" />
+    <Compile Include="CoolitSensorAddress.cs" />
+    <Compile Include="Device.cs" />
+    <Compile Include="DeviceFactory.cs" />
+    <Compile Include="General\DeviceDistinguishInfo.cs" />
+    <Compile Include="General\DeviceInstance.cs" />
+    <Compile Include="General\SensorInstance.cs" />
+    <Compile Include="HidDevicesCache.cs" />
+    <Compile Include="HidDeviceComponent.cs" />
+    <Compile Include="IReportFactory.cs" />
+    <Compile Include="IResponseParser.cs" />
+    <Compile Include="IResponseValidator.cs" />
+    <Compile Include="Management\IManagementObjectFilter.cs" />
+    <Compile Include="Management\ManagementObjectEnumerator.cs" />
+    <Compile Include="Management\ManagementObjectMapper.cs" />
+    <Compile Include="Management\WhereFilter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WQL\WmiClassAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

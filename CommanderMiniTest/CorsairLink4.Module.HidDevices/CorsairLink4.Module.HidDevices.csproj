@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F10DAEE-88D7-4250-B766-8B4A77816C47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CorsairLink4.Module.HidDevices</RootNamespace>
+    <AssemblyName>CorsairLink4.Module.HidDevices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Output\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>..\Output\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Barbuda\Core\BarbudaDeviceComponent.cs" />
+    <Compile Include="Barbuda\Definitions\FanStateCode.cs" />
+    <Compile Include="Barbuda\Interface\IBarbudaDevice.cs" />
+    <Compile Include="Barbuda\Interface\IBarbudaDataReader.cs" />
+    <Compile Include="Barbuda\Interface\IBarbudaDataWriter.cs" />
+    <Compile Include="Barbuda\Interface\IBarbudaDevicesEnumerator.cs" />
+    <Compile Include="Barbuda\Mocks\BarbudaDataProcessorMock.cs" />
+    <Compile Include="Barbuda\Mocks\BarbudaDataReaderMock.cs" />
+    <Compile Include="Barbuda\Mocks\BarbudaDataWriterMock.cs" />
+    <Compile Include="Barbuda\Mocks\BarbudaDeviceDefaults.cs" />
+    <Compile Include="Barbuda\Mocks\BarbudaDevicesEnumeratorMock.cs" />
+    <Compile Include="Barbuda\Mocks\BarbudaDeviceSimulator.cs" />
+    <Compile Include="Barbuda\Mocks\BarbudaFanSimulator.cs" />
+    <Compile Include="Barbuda\Mocks\BarbudaTempSimulator.cs" />
+    <Compile Include="Coolit\BufferManipulation\CoolitCommandByteWriter.cs" />
+    <Compile Include="Coolit\BufferManipulation\CoolitReadBlockBufferVisitor.cs" />
+    <Compile Include="Coolit\BufferManipulation\CoolitRegisterDataWriterVisitor.cs" />
+    <Compile Include="Coolit\BufferManipulation\CoolitSingleRegisterByteWriterVisitor.cs" />
+    <Compile Include="Coolit\BufferManipulation\CoolitWriteBlockBufferVisitor.cs" />
+    <Compile Include="Coolit\CommandCodes\CoolitBridgeCommandCode.cs" />
+    <Compile Include="Coolit\CommandCodes\CoolitCommandOpCode.cs" />
+    <Compile Include="Coolit\CommandCodes\CoolitModernCommandCode.cs" />
+    <Compile Include="Coolit\CommandCodes\CoolitOldCommandCode.cs" />
+    <Compile Include="Coolit\CommandCodes\LedNodeCommandOpCode.cs" />
+    <Compile Include="Coolit\CoolitDataConverter.cs" />
+    <Compile Include="Coolit\CoolitDevice.cs" />
+    <Compile Include="Coolit\CoolitChannelTag.cs" />
+    <Compile Include="Coolit\CoolitUtils.cs" />
+    <Compile Include="Coolit\FlextronicsBridge\CoolitConnectedFlextronics.cs" />
+    <Compile Include="Coolit\FlextronicsBridge\FlextronicsBridgeCommunicationHandle.cs" />
+    <Compile Include="Coolit\ICoolitConnectedDevice.cs" />
+    <Compile Include="Coolit\IFanController.cs" />
+    <Compile Include="Coolit\ILedController.cs" />
+    <Compile Include="Coolit\ModernLedController.cs" />
+    <Compile Include="Coolit\OldWorldFanController.cs" />
+    <Compile Include="Coolit\ModernFanController.cs" />
+    <Compile Include="Coolit\OldWorldLedController.cs" />
+    <Compile Include="Coolit\ReportFactories\BridgeProxyOutputReportFactory.cs" />
+    <Compile Include="Coolit\ReportFactories\JoycePSUOutputReportFactory.cs" />
+    <Compile Include="Coolit\ReportFactories\OldLightingNodeOutputReportFactory.cs" />
+    <Compile Include="Coolit\ResponseParsing\BCDFWVersionParser.cs" />
+    <Compile Include="Coolit\ResponseParsing\BlockParser.cs" />
+    <Compile Include="Coolit\Sensors\CoolitSensor.cs" />
+    <Compile Include="Coolit\CoolitHidDevice.cs" />
+    <Compile Include="Coolit\BufferManipulation\CoolitVisitor.cs" />
+    <Compile Include="Coolit\CoolitModel.cs" />
+    <Compile Include="Coolit\CoolitRegisterData.cs" />
+    <Compile Include="Coolit\CoolitRegisterDataUtils.cs" />
+    <Compile Include="Coolit\ReportFactories\CoolitBridgeOutputReportFactory.cs" />
+    <Compile Include="Coolit\ReportFactories\CoolitModernOutputReportFactory.cs" />
+    <Compile Include="Coolit\ReportFactories\CoolitOldOutputReportFactory.cs" />
+    <Compile Include="Coolit\ResponseParsing\ByteParser.cs" />
+    <Compile Include="Coolit\ResponseParsing\ModelParser.cs" />
+    <Compile Include="Coolit\ResponseParsing\WordParser.cs" />
+    <Compile Include="Coolit\ResponseValidation\CoolitBridgeResponseValidator.cs" />
+    <Compile Include="Core\CommandStateMachine.cs" />
+    <Compile Include="Core\HidDevicesCache.cs" />
+    <Compile Include="Core\IReportFactory.cs" />
+    <Compile Include="HidDevicesComponent.cs" />
+    <Compile Include="IHidDevicesComponent.cs" />
+    <Compile Include="Management\DeviceEventMonitor.cs" />
+    <Compile Include="Management\Filters\IManagementObjectFilter.cs" />
+    <Compile Include="Management\Filters\WhereFilter.cs" />
+    <Compile Include="Management\ManagementObjectEnumerator.cs" />
+    <Compile Include="Management\ManagementObjectMapper.cs" />
+    <Compile Include="Mocks\Coolit\CoolitCoolerDeviceMock.cs" />
+    <Compile Include="Mocks\HidDeviceComponentMock.cs" />
+    <Compile Include="Mocks\HXPowerSupplyUnitMock.cs" />
+    <Compile Include="Mocks\RobbinsPsuDeviceMock.cs" />
+    <Compile Include="Models\CoolitDeviceEntity.cs" />
+    <Compile Include="Models\Device.cs" />
+    <Compile Include="Models\DeviceFactory.cs" />
+    <Compile Include="Models\DeviceTypeResolver.cs" />
+    <Compile Include="Models\FanInfo.cs" />
+    <Compile Include="Models\LinkDeviceEntity.cs" />
+    <Compile Include="Models\OverCurrentProtectionMode.cs" />
+    <Compile Include="Models\PowerSupplyUnitDeviceEntity.cs" />
+    <Compile Include="Models\PowerSupplyUnitPage.cs" />
+    <Compile Include="Models\PSUPage.cs" />
+    <Compile Include="Models\RobbinsPsuDeviceEntity.cs" />
+    <Compile Include="PowerSupplyUnit\BufferManipulation\ArgWriteSingleByteVisitor.cs" />
+    <Compile Include="PowerSupplyUnit\BufferManipulation\BusReadVisitor.cs" />
+    <Compile Include="PowerSupplyUnit\BufferManipulation\BusWriteVisitor.cs" />
+    <Compile Include="PowerSupplyUnit\BufferManipulation\CleanerVisitor.cs" />
+    <Compile Include="PowerSupplyUnit\BufferManipulation\CommandCodeWriterVisitor.cs" />
+    <Compile Include="PowerSupplyUnit\BufferManipulation\HandshakeVisitor.cs" />
+    <Compile Include="PowerSupplyUnit\BufferManipulation\ReportIdWriterVisitor.cs" />
+    <Compile Include="CLink\Link.cs" />
+    <Compile Include="CLink\LinkCommandCode.cs" />
+    <Compile Include="CLink\LinkCommandCodeWriterVisitor.cs" />
+    <Compile Include="CLink\LinkOutputReportFactory.cs" />
+    <Compile Include="CLink\LinkResponseValidator.cs" />
+    <Compile Include="CLink\ResponseParsing\LinkFanPowerResponseParser.cs" />
+    <Compile Include="CLink\ResponseParsing\LinkFrequencyResponseParser.cs" />
+    <Compile Include="CLink\ResponseParsing\LinkTemperatureResponseParser.cs" />
+    <Compile Include="CLink\WriteElementVisitor.cs" />
+    <Compile Include="Core\Helpers\ByteExt.cs" />
+    <Compile Include="Core\Helpers\NumConverter.cs" />
+    <Compile Include="PowerSupplyUnit\CommandLengthHelper.cs" />
+    <Compile Include="PowerSupplyUnit\PowerSupplyUnit.cs" />
+    <Compile Include="PowerSupplyUnit\PowerSupplyUnitHidDevice.cs" />
+    <Compile Include="PowerSupplyUnit\PsuOutputReportFactory.cs" />
+    <Compile Include="PowerSupplyUnit\ResponseParsing\CoolitDataParser.cs" />
+    <Compile Include="PowerSupplyUnit\ResponseParsing\FirmwareVersionParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PowerSupplyUnit\PsuCommandCode.cs" />
+    <Compile Include="PowerSupplyUnit\ResponseParsing\BlockParser.cs" />
+    <Compile Include="PowerSupplyUnit\ResponseParsing\BytesAsDoubleParser.cs" />
+    <Compile Include="Core\IResponseParser.cs" />
+    <Compile Include="PowerSupplyUnit\ResponseParsing\SingleByteParser.cs" />
+    <Compile Include="Core\IResponseValidator.cs" />
+    <Compile Include="PowerSupplyUnit\ResponseValidation\PsuResponseValidator.cs" />
+    <Compile Include="Robbins\RobbinsPsu.cs" />
+    <Compile Include="Robbins\RobbinsPsuCommandCode.cs" />
+    <Compile Include="Robbins\RobbinsPsuHidDevice.cs" />
+    <Compile Include="Robbins\ResponseValidation\RobbinsPsuResponseValidator.cs" />
+    <Compile Include="WQL\EventProvider.cs" />
+    <Compile Include="WQL\InstanceCreationEvent.cs" />
+    <Compile Include="WQL\InstanceDeletionEvent.cs" />
+    <Compile Include="WQL\InstanceModificationEvent.cs" />
+    <Compile Include="WQL\InstanceOperationEvent.cs" />
+    <Compile Include="WQL\Linq\Helpers.cs" />
+    <Compile Include="WQL\Linq\ISource.cs" />
+    <Compile Include="WQL\Linq\WqlFilteredQuery.cs" />
+    <Compile Include="WQL\Linq\WqlProjectedQuery.cs" />
+    <Compile Include="WQL\Linq\WqlProvider.cs" />
+    <Compile Include="WQL\Linq\WqlQbservableSource.cs" />
+    <Compile Include="WQL\Linq\WqlQuerySource.cs" />
+    <Compile Include="WQL\Linq\WqlWithinQuery.cs" />
+    <Compile Include="WQL\WmiClassAttribute.cs" />
+    <Compile Include="WQL\WmiEventClassAttribute.cs" />
+    <Compile Include="WQL\WMIValueTypeConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Barbuda\Enumeration\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
