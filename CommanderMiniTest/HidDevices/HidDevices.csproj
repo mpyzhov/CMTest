@@ -42,11 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoolitFanMode.cs" />
     <Compile Include="CoolitHidDevice.cs" />
     <Compile Include="CoolitModernCommandCode.cs" />
     <Compile Include="CoolitModernOutputReportFactory.cs" />
-    <Compile Include="CoolitUtils.cs" />
     <Compile Include="CommandStateMachine.cs" />
     <Compile Include="CoolitBridgeCommandCode.cs" />
     <Compile Include="CoolitBridgeOutputReportFactory.cs" />

@@ -33,8 +33,6 @@ namespace HidDevices
             Channel = channel;
             bridgeReportFactory = new CoolitBridgeOutputReportFactory(deviceEntity) { Channel = channel };
             modernReportFactory = new CoolitModernOutputReportFactory(deviceEntity) { Channel = channel };
-            //oldReportFactory = new CoolitOldOutputReportFactory(deviceEntity) { Channel = channel };
-            //lightingNodeReportFactory = new OldLightingNodeOutputReportFactory(deviceEntity) { Channel = channel };
         }
 
         public string FwVersion
@@ -52,30 +50,6 @@ namespace HidDevices
         public string UDID { get; private set; }
 
         public byte Channel { get; private set; }
-
-        public DeviceInstance InstanceKey
-        {
-            get
-            {
-                return new DeviceInstance(deviceInfo.Pid, "1b1c", UDID);
-            }
-        }
-
-        public HidDevice DeviceEntity
-        {
-            get
-            {
-                return deviceEntity;
-            }
-        }
-
-        //private bool IsBridge
-        //{
-        //    get
-        //    {
-        //        return Channel == 0 && deviceInfo.Bridgeable;
-        //    }
-        //}
 
         public async Task<bool> Initialize()
         {
@@ -111,8 +85,6 @@ namespace HidDevices
                 await ReadFwVersion();
 
                 await FillFanSensorsCollection();
-                await FillTemperatureSensorsCollection();
-                await FillLedSensorsCollection();
             }
         }
 
@@ -163,20 +135,6 @@ namespace HidDevices
             {
                 var pump = fanSensors.Last();
                 pump.SensorType = CoolitSensorType.PumpRpm;
-            }
-        }
-
-        private static void NameSensors(List<CoolitSensor> collection, CoolitModel model)
-        {
-            if (collection.Count == 1 && collection[0].SensorType == CoolitSensorType.Led)
-            {
-                collection[0].Name = "Led";
-                return;
-            }
-
-            foreach (var sensor in collection)
-            {
-                sensor.Name = CoolitUtils.GetCoolitSensorName(sensor.SensorType, sensor.Channel, model);
             }
         }
 

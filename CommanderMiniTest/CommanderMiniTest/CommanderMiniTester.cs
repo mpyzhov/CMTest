@@ -9,7 +9,7 @@ namespace CommanderMiniTest
 {
     public class CommanderMiniTester
     {
-        private static int attempts = 1000;
+        private static int attempts = 10000;
         public static async Task Test()
         {
             HidDeviceComponent component = new HidDeviceComponent();
@@ -17,6 +17,7 @@ namespace CommanderMiniTest
 
             for (int i = 0; i < attempts; i++)
             {
+                Console.WriteLine("----Test #{0}", i + 1);
                 // should be connected ONLY Commander Mini
                 var device = component.EnumerateCoolitBridgeDevices().FirstOrDefault();
 
@@ -43,7 +44,7 @@ namespace CommanderMiniTest
                 }
 
                 //Console.WriteLine("1000 msec delay");
-                await Task.Delay(1000);
+                await Task.Delay(10);
                 Console.WriteLine();
             }
         }

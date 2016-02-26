@@ -49,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Extensions\Extensions.csproj">
+      <Project>{236b8cee-c47b-447b-8a61-57d8817a2241}</Project>
+      <Name>Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HidDevices\HidDevices.csproj">
       <Project>{4c9cb1f7-3d8e-4a89-bea8-850e95649805}</Project>
       <Name>HidDevices</Name>

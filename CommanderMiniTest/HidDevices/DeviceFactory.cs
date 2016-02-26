@@ -15,12 +15,6 @@ namespace HidDevices
             return new Device();
         }
 
-        public static CoolitDeviceEntity CreateDeviceEntity(ManagementBaseObject mbo)
-        {
-            Device device = ManagementObjectMapper.Map<Device>(mbo, CreateDevice);
-            return DeviceEntityFromDevice(device);
-        }
-
         public static CoolitDeviceEntity DeviceEntityFromDevice(Device device)
         {
             string pidPrefix = "PID_";
