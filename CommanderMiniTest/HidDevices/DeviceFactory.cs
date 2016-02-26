@@ -27,7 +27,7 @@ namespace HidDevices
             int index = device.DeviceID.IndexOf("PID_") + pidPrefix.Length;
             string currentPID = device.DeviceID.Substring(index, 4).ToLower();
 
-            if (currentPID == "0c043d")
+            if (currentPID == "0c04")
             {
                 var result = new CoolitDeviceEntity();
 

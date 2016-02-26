@@ -11,12 +11,8 @@ namespace CommanderMiniTest
     {
         static void Main(string[] args)
         {
-            HidDeviceComponent component = new HidDeviceComponent();
 
-            foreach(var bridge in component.EnumerateCoolitBridgeDevices())
-            {
-
-            }
+            CommanderMiniTester.Test().Wait();
 
             Console.WriteLine("End");
             Console.ReadLine();

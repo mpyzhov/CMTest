@@ -9,7 +9,7 @@ namespace HidDevices
 {
     internal class HidDevicesCache
     {
-        private static readonly TimeSpan CacheInvalidateTimeout = TimeSpan.FromSeconds(10);
+        private static readonly TimeSpan CacheInvalidateTimeout = TimeSpan.FromSeconds(1);
 
         private readonly IManagementObjectFilter filter = new WhereFilter("DeviceID").StartsWith("hid");
         private List<Device> devices = null;

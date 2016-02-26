@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HumanInterfaceDevice">
-      <HintPath>..\dlls\HumanInterfaceDevice.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -45,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoolitFanMode.cs" />
     <Compile Include="CoolitHidDevice.cs" />
     <Compile Include="CoolitModernCommandCode.cs" />
     <Compile Include="CoolitModernOutputReportFactory.cs" />
@@ -77,10 +75,16 @@
     <Compile Include="Management\ManagementObjectEnumerator.cs" />
     <Compile Include="Management\ManagementObjectMapper.cs" />
     <Compile Include="Management\WhereFilter.cs" />
+    <Compile Include="ModernFanController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WQL\WmiClassAttribute.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HumanInterfaceDevice\HumanInterfaceDevice.csproj">
+      <Project>{18752c4e-ab66-4712-b517-cacbe6241ef8}</Project>
+      <Name>HumanInterfaceDevice</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

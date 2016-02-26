@@ -4,54 +4,68 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0B5B332C-84D7-433A-8050-7A8881A9A79E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{18752C4E-AB66-4712-B517-CACBE6241EF8}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommanderMiniTest</RootNamespace>
-    <AssemblyName>CommanderMiniTest</AssemblyName>
+    <RootNamespace>HumanInterfaceDevice</RootNamespace>
+    <AssemblyName>HumanInterfaceDevice</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Output\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Output\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>..\..\Output\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommanderMiniTester.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Buffer\Buffer.cs" />
+    <Compile Include="Buffer\IBuffer.cs" />
+    <Compile Include="Buffer\IBufferVisitor.cs" />
+    <Compile Include="Hid\DeviceHandle.cs" />
+    <Compile Include="Hid\DevicePathBuilder.cs" />
+    <Compile Include="Hid\HidDevice.cs" />
+    <Compile Include="Hid\HidDeviceAccess.cs" />
+    <Compile Include="Hid\HidDeviceCapabilities.cs" />
+    <Compile Include="Hid\HidDeviceManager.cs" />
+    <Compile Include="Hid\HidReportType.cs" />
+    <Compile Include="Hid\IDeviceHandle.cs" />
+    <Compile Include="Hid\IHidDeviceManager.cs" />
+    <Compile Include="Hid\InputReport.cs" />
+    <Compile Include="Hid\InputReportReceivedEventArgs.cs" />
+    <Compile Include="Hid\OutputReport.cs" />
+    <Compile Include="Hid\ReportDataExtractorVisitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HidDevices\HidDevices.csproj">
-      <Project>{4c9cb1f7-3d8e-4a89-bea8-850e95649805}</Project>
-      <Name>HidDevices</Name>
+    <ProjectReference Include="..\Extensions\Extensions.csproj">
+      <Project>{236b8cee-c47b-447b-8a61-57d8817a2241}</Project>
+      <Name>Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
