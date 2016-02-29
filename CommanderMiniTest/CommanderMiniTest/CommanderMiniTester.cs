@@ -9,13 +9,11 @@ namespace CommanderMiniTest
 {
     public class CommanderMiniTester
     {
-        private static int attempts = 10000;
-        public static async Task Test()
+        public static async Task Test(uint internalAttempts  = 1000)
         {
             HidDeviceComponent component = new HidDeviceComponent();
 
-
-            for (int i = 0; i < attempts; i++)
+            for (int i = 0; i < internalAttempts; i++)
             {
                 Console.WriteLine("----Test #{0}", i + 1);
                 // should be connected ONLY Commander Mini
